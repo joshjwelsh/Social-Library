@@ -5,7 +5,7 @@ type Book struct {
 	Title      string `json:"title"`
 	Desc       string `json:"description"`
 	Author     string `json:"author"`
-	DisplayPic []byte `json:"displayPic"`
+	DisplayPic []byte `json:"displayPic,omitempty"`
 }
 
 type Feed struct {

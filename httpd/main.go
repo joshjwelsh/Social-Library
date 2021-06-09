@@ -1,15 +1,17 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/gin-gonic/gin"
+	"github.com/joshjwelsh/Social-Library/httpd/handler"
+	"github.com/joshjwelsh/Social-Library/httpd/model"
+)
 
 func main() {
+	feed := model.New()
 	r := gin.Default()
 
-	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "pong",
-		})
-	})
+	r.GET("/bookfeed", handler.BookfeedGet(feed))
+	r.POST("/bookfeed", handler.NewsfeedPost(feed))
 
 	r.Run()
 }
